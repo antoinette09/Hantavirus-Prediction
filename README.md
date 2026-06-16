@@ -71,4 +71,28 @@ License
 Public domain data from U.S. Government agencies (CDC, NOAA). Code available for educational and research purposes.
 
 Note: This research is for educational purposes and does not constitute medical advice.
-```
+
+
+Version 2: R Implementation
+An equivalent analysis written in R using tidyverse and MASS.
+
+R Dependencies
+install.packages(c("tidyverse", "MASS", "viridis"))
+Run R Analysis
+source("hantavirus_analysis.R")              # Normal run
+source("hantavirus_analysis.R")              # Then modify to: main(generate_csv = TRUE) for first run
+
+File Structure (Updated)
+hantavirus-prediction/
+├── hantavirus_analysis.py       # Python version (v1)
+├── hantavirus_analysis.R        # R version (v2)
+├── raw_cdc_data.txt             # Source data
+├── 4328282.csv                  # NOAA weather data
+├── cdc_hantavirus_1993_2023.csv # Generated CDC data
+├── final_aic_comparison.png     # Output
+├── final_correlation_heatmap.png # Output
+└── README.md
+
+---
+
+The R version produces the same two graphs with nearly identical styling. The main differences are just R idioms (`%>%` instead of `.`, `ggplot2` instead of `matplotlib`, `glm.nb()` instead of `NegativeBinomial`).
